@@ -4,6 +4,7 @@ import { BaseLayout, BaseLayoutProps } from './base-layout';
 const Sidebar = () => (
   <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
     <li><a href="/">Root</a></li>
+    <li><a href="/users">Users</a></li>
   </ul>
 );
 
