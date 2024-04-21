@@ -3,6 +3,7 @@ import { SidebarLayout } from '../components/layout';
 import { Table, TableRow } from '../components/table';
 import { Pagination } from '../components/pagination';
 import { UserRepository } from './user.repository';
+import { Breadcrumbs } from '../components/breadcrumbs';
 
 const userRepository = new UserRepository();
 
@@ -10,7 +11,7 @@ export const router = new Hono();
 
 router.get('/users', (c) => c.html(
   <SidebarLayout title="Dashboard | Users">
-    <h1>Users</h1>
+    <Breadcrumbs items={[{ label: 'Home', url: '/' }, { label: 'Users' }]} />
     <div id="user-list" hx-get="/users/list" hx-trigger="load" />
   </SidebarLayout>
 ));

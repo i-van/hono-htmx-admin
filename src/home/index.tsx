@@ -1,10 +1,11 @@
 import { Hono } from 'hono';
 import { SidebarLayout } from '../components/layout';
+import { Breadcrumbs } from '../components/breadcrumbs';
 
 export const router = new Hono();
 
 router.get('/', (c) => c.html(
   <SidebarLayout title="Dashboard">
-    <h1>Home</h1>
+    <Breadcrumbs items={[{ label: 'Home' }]} />
   </SidebarLayout>
 ));
