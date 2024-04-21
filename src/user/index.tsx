@@ -30,7 +30,7 @@ router.get('/users/list/:page?', async (c) => {
           <TableRow fields={[String(r.id), `${r.firstName} ${r.lastName}`, r.role]} />
         ))}
       </Table>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center mt-4">
         <Pagination currentPage={page} totalPages={totalPages} url="/users/list/:page" target="#user-list" />
       </div>
     </>
