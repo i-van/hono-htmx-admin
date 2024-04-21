@@ -2,10 +2,7 @@ import { Hono } from 'hono';
 import { SidebarLayout } from '../components/layout';
 import { Table, TableRow } from '../components/table';
 import { Pagination } from '../components/pagination';
-import { UserRepository } from './user.repository';
 import { Breadcrumbs } from '../components/breadcrumbs';
-
-const userRepository = new UserRepository();
 
 export const router = new Hono();
 
@@ -17,6 +14,7 @@ router.get('/users', (c) => c.html(
 ));
 
 router.get('/users/list/:page?', async (c) => {
+  const { userRepository } = c.var;
   const page = Number(c.req.param('page')) || 1;
   const limit = 10;
   const offset = (page - 1) * limit;
