@@ -28,13 +28,23 @@ export class UserStore {
       'Villarreal', 'Heath', 'Ryan', 'Robertson', 'Sweeney',
     ];
 
+    this.rows.push({
+      id: this.generateId(),
+      email: 'admin@mail.com',
+      firstName: 'Super',
+      lastName: 'Admin',
+      role: 'admin',
+      password: '123456',
+    });
     while (this.rows.length < 50) {
-      const id = this.generateId();
+      const firstName = getRandomElement(firstNames);
+      const lastName = getRandomElement(lastNames);
       this.rows.push({
-        id,
-        firstName: getRandomElement(firstNames),
-        lastName: getRandomElement(lastNames),
-        role: id === 1 ? 'admin' : 'user',
+        id: this.generateId(),
+        email: `${firstName}.${lastName}@mail.com`.toLowerCase(),
+        firstName,
+        lastName,
+        role: 'user',
         password: '123456',
       });
     }

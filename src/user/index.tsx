@@ -24,9 +24,9 @@ router.get('/users/list/:page?', async (c) => {
 
   return c.html(
     <>
-      <Table headers={['', 'Full Name', 'Role']}>
+      <Table headers={['', 'Email', 'Full Name', 'Role']}>
         {rows.map(r => (
-          <TableRow fields={[String(r.id), `${r.firstName} ${r.lastName}`, r.role]} />
+          <TableRow fields={[String(r.id), r.email, `${r.firstName} ${r.lastName}`, r.role]} />
         ))}
       </Table>
       <div className="flex flex-col items-center mt-4">
