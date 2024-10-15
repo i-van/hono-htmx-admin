@@ -25,4 +25,8 @@ export class UserRepository {
   async fetchOne(id: number): Promise<User | null> {
     return this.store.getRows().find(u => u.id === id) ?? null;
   }
+
+  async fetchOneByEmail(email: string): Promise<User | null> {
+    return this.store.getRows().find(u => u.email === email) ?? null;
+  }
 }
