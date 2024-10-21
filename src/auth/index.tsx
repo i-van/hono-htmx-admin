@@ -43,3 +43,11 @@ router.post('/login', async (c) => {
     <LoginForm values={values} errors={errors} />
   );
 });
+
+router.post('/logout', (c) => {
+  const { session } = c.var;
+  session.deleteSession();
+
+  c.header('HX-Redirect', '/');
+  return c.redirect('/');
+});

@@ -5,6 +5,7 @@ const Sidebar = () => (
   <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
     <li><a href="/">Home</a></li>
     <li><a href="/users">Users</a></li>
+    <li><a hx-post="/logout" hx-target="body">Logout</a></li>
   </ul>
 );
 
